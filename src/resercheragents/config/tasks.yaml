@@ -1,0 +1,25 @@
+research_task:
+  description: >
+    The Research Task involves identifying relevant academic papers, 
+    books, articles, and other resources based on the {topic}. 
+    The Research Lead must search through databases, libraries, 
+    and credible online sources to compile all available materials.
+  expected_output: >
+    A comprehensive list of sources along with brief 
+    summaries for each, highlighting their relevance to the {topic}. 
+    The final output should also include a report detailing the overall 
+    landscape of the research on the given {topic}.
+  agent: researcher
+
+writing_task:
+  description: >
+    The Writing Task consists of synthesizing the information gathered 
+    by the Research Lead into a well-organized review article. 
+    The article should present a thorough examination of the {topic}, 
+    discussing key findings, identifying gaps in the literature, 
+    and providing insights for future research.
+  expected_output: >
+    A complete review article, 
+    formatted according to academic standards, including proper citations, 
+    a clear structure (introduction, body, conclusion), and a bibliography in 2 A4 pages.
+  agent: writer
