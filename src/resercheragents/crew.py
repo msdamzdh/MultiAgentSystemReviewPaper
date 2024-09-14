@@ -1,7 +1,7 @@
 from logging import config
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import PDFSearchTool, FileReadTool
+from crewai_tools import PDFSearchTool, FileReadTool, DirectoryReadTool
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 import os
@@ -15,7 +15,7 @@ load_dotenv()
 llm = ChatGroq(api_key=os.getenv('GROQ_API_KEY'),
                model='mixtral-8x7b-32768')
 file_read_tool = FileReadTool()
-pdf_rag_too = PDFSearchTool(pdf='E:\Research\RDLSF_Stress_constraint\Stress_levelsetPaper\james2012.pdf',
+pdf_rag_too = PDFSearchTool(
         config=dict(
             llm=dict(provider="groq", 
                      config=dict(model = "mixtral-8x7b-32768",
@@ -28,7 +28,7 @@ pdf_rag_too = PDFSearchTool(pdf='E:\Research\RDLSF_Stress_constraint\Stress_leve
                           )
         )
         )
-        
+directory_read_tool =  DirectoryReadTool()
 """LLM Model"""
 @CrewBase
 class ResercheragentsCrew():
@@ -40,7 +40,7 @@ class ResercheragentsCrew():
 	def researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['researcher'],
-			tools=[file_read_tool,pdf_rag_too], # Example of custom tool, loaded on the beginning of file
+			tools=[file_read_tool,pdf_rag_too,directory_read_tool], # Example of custom tool, loaded on the beginning of file
 			verbose=True,
 			llm = llm,
    			allow_delegation = False,
