@@ -1,6 +1,6 @@
 # Resercheragents Crew
 
-Welcome to the Resercheragents Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+Welcome to the Resercheragents Crew project, powered by [crewAI](https://crewai.com). This project is designed to help you set up a multi-agent AI system with ease, for writing review papers based on PDFs located in your system. 
 
 ## Installation
 
@@ -21,14 +21,11 @@ poetry lock
 ```bash
 poetry install
 ```
+<span style="color:blue">Make sure all needed packages are installed, otherwise check and install them manually. for example for me, pypika did not installed that make me intall it manually.<span> 
 ### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/resercheragents/config/agents.yaml` to define your agents
-- Modify `src/resercheragents/config/tasks.yaml` to define your tasks
-- Modify `src/resercheragents/crew.py` to add your own logic, tools and specific args
-- Modify `src/resercheragents/main.py` to add custom inputs for your agents and tasks
+## LLM Models
+Here for agents, <b>mixtral-8x7b-32768</b> by using an api key from Groq for chat and local embeder model from huggingface for embedding PDFs are used. User must set it's variable envirnment in <b>.env</b> file.
 
 ## Running the Project
 
@@ -43,8 +40,6 @@ poetry run resercheragents
 ```
 
 This command initializes the ResercherAgents Crew, assembling the agents and assigning them tasks as defined in your configuration.
-
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
 
 ## Understanding Your Crew
 

@@ -28,7 +28,7 @@ pdf_rag_too = PDFSearchTool(
                           )
         )
         )
-directory_read_tool =  DirectoryReadTool()
+directory_read_tool =  DirectoryReadTool(os.getenv('DIRECTORY_PATH'))
 """LLM Model"""
 @CrewBase
 class ResercheragentsCrew():
